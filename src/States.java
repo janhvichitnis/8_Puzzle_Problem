@@ -41,24 +41,32 @@ public class States {
         EmptySpaceAt[1] = location[1];
     }
 
-    public int GetManhattenDistance(Integer[][] state1, Integer[][] state2) {
+    public int calculateHeuristic(Integer[][] state1, Integer[][] state2, int heuristicType) {
         int manDistance = 0;
+        int misplacedTiles = 0;
         Integer[] initial_Location = new Integer[2];
         Integer[] final_Location = new Integer[2];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if ((state1[i][j] == state2[i][j]) || state1[i][j] == 0) {
-
                 } else {
                     initial_Location[0] = i;
                     initial_Location[1] = j;
                     final_Location = Final_Location(state2, state1[i][j]);
                     manDistance = manDistance + (Math.abs(initial_Location[1] - final_Location[1]) + Math.abs(initial_Location[0] - final_Location[0]));
-
+                    misplacedTiles++;
                 }
             }
         }
-        return manDistance;
+        switch (heuristicType) {
+            case 1:
+                return misplacedTiles;
+            case 2:
+                return manDistance;
+            default:
+                return 0;
+
+        }
     }
 
 
@@ -106,7 +114,7 @@ public class States {
         state = new Integer[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                state[i][j]=other.getState()[i][j];
+                state[i][j] = other.getState()[i][j];
             }
         }
     }

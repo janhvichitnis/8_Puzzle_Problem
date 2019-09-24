@@ -22,10 +22,6 @@ public class Node
         return Parent;
     }
 
-    public int getCost() {
-        return Cost;
-    }
-
     public int getDepth() {
         return Depth;
     }

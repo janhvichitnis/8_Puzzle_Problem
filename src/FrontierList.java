@@ -12,7 +12,6 @@ public class FrontierList {
     public void Add_inQueue(Node node) {
         Frontier_List.add(node);
     }
-
     public Node get_and_Remove_from_Queue() {
         int best_index = 0;
         int best_priority = Frontier_List.get(0).Cost;
@@ -26,7 +25,6 @@ public class FrontierList {
         Frontier_List.remove(best_index);
         return n;
     }
-
     public int size() {
         return getFrontier_List().size();
     }
