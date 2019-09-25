@@ -58,6 +58,7 @@ public class PuzzleProblem {
                 }
                 System.out.println("The Number of Nodes Generated: " + explored_List.size());
                 System.out.println("The Number of Nodes Explored: " + frontier_List.size() + " (Including Initial and Goal State)");
+                System.out.println("Total moves needed = " + (solution.size() - 1));
                 problem_solved = true;
                 break;
             }
